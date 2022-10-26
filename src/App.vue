@@ -1,26 +1,33 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+   <div class=" flex ">
+    <div class="w-3/5 bg-slate-200 py-20">
+      <div class="w-4/5 mx-auto">
+        <TaskStatsVue />
+        <TaskListVue/>
+      </div>
+    </div>
+    <div class="w-2/5 bg-white py-10">
+      <TaskFormVue />
+    </div>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+
+import TaskFormVue from './components/TaskForm.vue'
+import TaskStatsVue from './components/TaskStats.vue'
+import TaskListVue from './components/TaskList.vue'
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    TaskFormVue,
+    TaskStatsVue,
+    TaskListVue
   }
+
 }
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style src="./assets/tailwind.css">
 </style>
