@@ -11,7 +11,13 @@ export const useTaksStore = defineStore('tasks',{
     },
     getTasksSize(){
         return this.tasks.length
-    } 
+    },
+    getWaittingTask(){
+        return this.tasks.filter((task) => task.complete == false).length
+    },
+    getCompleteTasks(){
+        return this.getTasksSize - this.getWaittingTask;
+    }
    },
    actions: {
     // add new task to the store

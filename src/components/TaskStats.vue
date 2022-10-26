@@ -6,7 +6,7 @@
                     <i class="las la-check text-3xl text-green-400"></i>
                 </div>
                 <div class="w-2/3 flex flex-col items-center">
-                    <span class="text-2xl">0</span>
+                    <span class="text-2xl">{{taksStore.getCompleteTasks}}</span>
                     <span class="">Terminées</span>
                 </div>
             </div>
@@ -17,7 +17,7 @@
                     <i class="las la-hourglass-half text-3xl text-orange-400"></i>
                 </div>
                 <div class="w-2/3 flex flex-col items-center">
-                    <span class="text-2xl">0</span>
+                    <span class="text-2xl">{{taksStore.getWaittingTask}}</span>
                     <span class="">En attente</span>
                 </div>
             </div>
