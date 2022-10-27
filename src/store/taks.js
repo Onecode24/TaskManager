@@ -23,6 +23,12 @@ export const useTaksStore = defineStore('tasks',{
     // add new task to the store
     addTask(task){
         this.tasks.push(task);
+    },
+
+    setStatus(id){
+        console.log(this.tasks);
+        const task = this.tasks.find((task) => task.id = id)
+        task.complete = !task.complete;
     }
    }
 })

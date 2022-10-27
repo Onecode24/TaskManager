@@ -1,14 +1,14 @@
 <template>
-    <form class="px-16 flex flex-col justify-center h-full" @submit.prevent="addTask">
+    <form class="px-16 flex flex-col justify-center h-full" @submit.prevent="addTask"  >
         <h1 class="text-3xl font-semibold mb-10">Nouvelle tache</h1>
         <div class="mb-6">
-            <input type="text" placeholder="Name" class="inline-flex w-full px-2 py-3 rounded-lg border-2 border-gray-300 focus:outline-none" v-model="task.name" required/>
+            <input type="text" placeholder="Name" class="inline-flex w-full px-2 py-3 rounded-lg border-2 border-gray-300 focus:outline-none" v-model="name" required/>
         </div>
         <div class="mb-6">
-            <textarea placeholder="Description of the task" class="inline-flex w-full px-3 py-4 rounded-lg border-2 border-gray-300 focus:outline-none" rows="6" v-model="task.description" required></textarea>
+            <textarea placeholder="Description of the task" class="inline-flex w-full px-3 py-4 rounded-lg border-2 border-gray-300 focus:outline-none" rows="6" v-model="description" required></textarea>
             </div>
             <div class="mb-6">
-        <input class="bg-blue-700 text-white px-6 py-3 rounded "   type="submit" value="Enregistrer" >
+        <input class="bg-blue-700 text-white px-6 py-3 rounded " type="submit" value="Enregistrer" >
         </div>
     </form>
 </template>
@@ -28,18 +28,31 @@
 
         data(){
             return{
-                task: {
-                    id: uuid(),
-                    name: '',
-                    description: '',
-                    complete: false
-                }
+                // task: {
+                //     id: uuid(),
+                //     name: '',
+                //     description: '',
+                //     complete: false
+                // },
+                name: '',
+                description: '',
             }
         },
 
         methods: {
             addTask() {
-                this.taksStore.addTask(this.task)
+                // const task = this.task;
+                // this.taksStore.addTask(task)
+                const task = {
+                    id: uuid(),
+                    name: this.name,
+                    description: this.description,
+                    complete: false, 
+                }
+                this.taksStore.addTask(task)
+                this.name='',
+                this.description=''
+
             },
             
         },
